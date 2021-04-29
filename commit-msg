@@ -1,0 +1,34 @@
+#!/bin/sh
+
+msg=$(cat $1)
+prefix=${msg:0:1}
+replace=""
+case $prefix in
+
+i)
+	replace="fix:"
+	;;
+
+e)
+	replace="feat:"
+	;;
+c)
+	replace="chore:"
+	;;
+
+s)
+	replace="style:"
+	;;
+
+d)
+	replace="docs:"
+	;;
+
+r)
+	replace="refactor:"
+	;;
+
+esac
+
+commit=${msg/$prefix/$replace}
+echo "$commit" >"$1"
