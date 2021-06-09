@@ -28,6 +28,11 @@ r)
 	replace="refactor:"
 	;;
 
+p)
+	replace="perform:"
+	;;
+
+
 esac
 
 commit=${msg/$prefix/$replace}
